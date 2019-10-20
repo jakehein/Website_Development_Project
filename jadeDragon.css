@@ -1,0 +1,13 @@
+body
+{
+    background-color: RGB(96,26,24);
+}
+nav > a
+{
+    grid-template-columns: auto, auto, auto;
+    justify-content: space-between;
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}

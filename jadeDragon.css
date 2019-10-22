@@ -2,12 +2,25 @@ body
 {
     background-color: RGB(96,26,24);
 }
-nav > a
+nav
 {
-    grid-template-columns: auto, auto, auto;
+    display: flex;
     justify-content: space-between;
-    color: yellow;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 20px;
+
+}
+a
+{
+  color: yellow;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 20px;
+}
+#outer
+{
+    border: 2px;
+}
+#center_column
+{
+    max-width: 800px;
+    margin: auto;
 }

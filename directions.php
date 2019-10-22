@@ -14,5 +14,15 @@
     </head>
     <body>
         <?php include "heading.html";?>
+        <h1>My First Google Map</h1>
+        <div id="map" style="width:100%;height:400px;"></div>
+        <script>
+            function myMap() {
+                var restaurant = {lat: 44.021431, lng: -88.546825};
+                var map = new google.maps.Map(document.getElementById('map'), {zoom: 20, center: restaurant});
+                var marker = new google.maps.Marker({position: restaurant, map: map});
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK3QMxsqxPpNHILkkGhHUvdQCPf-dm6OI&callback=myMap"></script>
     </body>
 </html>

@@ -1,6 +1,7 @@
 body
 {
     background-color: RGB(96,26,24);
+    color: white;
 }
 nav
 {
@@ -10,10 +11,21 @@ nav
 }
 a
 {
-  color: yellow;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 20px;
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+.copyright
+{
+    padding-top: 5px;
+    color: white;
+    clear: both;
+}
+#map
+{
+    float: left;
+    margin-right: 10px;
 }
 #outer
 {
@@ -23,4 +35,8 @@ a
 {
     max-width: 800px;
     margin: auto;
+}
+div.gallery
+{
+    float: left;
 }

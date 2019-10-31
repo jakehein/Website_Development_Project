@@ -2,12 +2,20 @@ body
 {
     background-color: RGB(96,26,24);
     color: white;
+	width: 800px;
+	padding: 5px;
+	margin: auto;
+	border: 1px solid yellow;
+}
+h1 {
+	color: yellow;
 }
 nav
 {
     display: flex;
     justify-content: space-between;
-
+	border-top: 1px solid yellow;
+	border-bottom: 1px solid yellow;
 }
 a
 {
@@ -16,11 +24,15 @@ a
     text-decoration: none;
     font-size: 20px;
 }
+a:hover{
+	color: goldenrod;
+}
 .copyright
 {
     padding-top: 5px;
     color: white;
     clear: both;
+	border-top: 1px solid yellow;
 }
 #map
 {

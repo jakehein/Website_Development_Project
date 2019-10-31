@@ -15,6 +15,7 @@
     </head>
     <body>
         <?php include "heading.html";?>
+		<h1>Welcome to Jade Dragon!</h1>
         <p>provide login for user/manager/owner</p>
         <p>login can be email for user, "pin" for manager/owner</p>
         <?php include "footer.html";?>

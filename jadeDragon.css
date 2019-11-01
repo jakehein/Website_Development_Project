@@ -52,3 +52,17 @@ div.gallery
 {
     float: left;
 }
+
+.contactDiv
+{
+	padding-left: 20px;
+	margin-top: 15px;
+}
+
+.commentField
+{
+	width: 95%;
+	height: 150px;
+	font-size: 20px;
+	resize: none;
+}

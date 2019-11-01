@@ -15,10 +15,26 @@
     </head>
     <body>
         <?php include "heading.html";?>
-        <form>
-            let us know what we can do to improve (This is totally a form!)
-        </form>
-        <p>Customer fills out form, manager and owner looks at form(s)</p>
+        <form action="contactSubmit.php" method="post">
+			<div class="contactDiv">
+				<label for="customerName">Name(Optional):</label>
+				<input type="text" id="customerName" name="customerName">
+			</div>
+			<div class="contactDiv">
+				<label for="customerEmail">E-mail(Optional):</label>
+				<input type="email" id="customerEmail" name="customerEmail">
+			</div>
+			<div class="contactDiv">
+				<div>
+					<label for="commentText">Tell Us What You Think!!!</label>
+				</div>
+				<textarea class="commentField" id="commentText" name="commentText" required></textarea>
+			</div>
+			<div class="contactDiv">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+        <p>Customer fills out form, form data is sent to business email</p>
         <?php include "footer.html";?>
     </body>
 </html>

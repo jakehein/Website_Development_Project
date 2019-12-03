@@ -1,5 +1,6 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+    require_once("database/menuUtility.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -10,12 +11,42 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="keywords" content="food, chinese, take out, delivery, rice, noodle, chicken, pork, jade, dragon, crab, rangoon, general, tso, Jade Dragon, Oshkosh, WI, 54901, Chinese Menu, Chinese restaurant Oshkosh, Chinese restaurant 54901, Chinese food Oshkosh, Chinese food 54901, Chinese food delivery, Chinese delivery Oshkosh, Chinese delivery 54901, Chinese food catering, Chinese carry out, Chinese dine in, Chinese party trays, Chinese food order online">
         <title>Jade Dragon</title>
-        <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
+        <link rel="icon" href="dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
         <?php include "heading.php";?>
         <p>Customer can select items in menu to order if logged in. Radio menu selection (disable if not logged in). Add totals for items selected.</p>
+        <h1>Menu:</h1>
+
+        <?php
+            $categories = get_categories();
+
+            foreach($categories as $category){
+        ?>
+            <h2> <?= $category ?> </h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Large Price</th>
+                    <th>Small Price</th>
+                </tr>
+        <?php
+                $items = get_menu_by_category($category);
+                foreach($items as $item){
+        ?>
+                <tr>
+                    <td><?= $item[1] ?></td>
+                    <td><?= $item[2] ?></td>
+                    <td><?= $item[3] ?></td>
+                </tr>
+        <?php
+                }
+        ?>
+            </table>
+        <?php
+            }
+        ?>
         <?php include "footer.html";?>
     </body>
 </html>

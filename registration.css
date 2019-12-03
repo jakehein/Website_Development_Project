@@ -1,0 +1,73 @@
+.registerlabel
+{
+	margin-top: 10px;
+}
+
+.registerField
+{
+	margin-left: 15px;
+	
+}
+
+.registrationForm
+{
+	margin-left: 20px;
+	
+}
+
+fieldset 
+{
+	margin-top: 10px;
+	color: yellow;
+	border-color: yellow;
+	border-width: 0px;
+}
+
+span
+{
+	color: yellow;
+}
+
+#email
+{
+	width: 300px;
+}
+
+#address1, #address2
+{
+	width: 200px;
+}
+
+label
+{
+	color: yellow;
+}
+
+input[type=submit]
+{
+	margin-bottom: 10px;
+}
+
+input[type=text]
+{
+	color: black;
+}
+
+fieldset img
+{
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+}
+
+fieldset div
+{
+	margin-left: 20px;
+}
+
+#fields
+{
+	padding-right: 20px;
+	float: left;
+	clear:both;
+}

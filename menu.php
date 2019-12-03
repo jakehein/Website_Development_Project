@@ -32,44 +32,47 @@
                     }
                 }
         ?>
-            <h2> <?= $category ?> </h2>
-            <table>
-                <tr>
-                    <th>Name</th>
+            <button class="accordion"> <?= $category ?> </button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>Name</th>
         <?php
-                    if($differentSizes) {
+                        if($differentSizes) {
         ?>
-                    <th>Large Price</th>
-                    <th>Small Price</th>
+                        <th>Large Price</th>
+                        <th>Small Price</th>
         <?php
-                    } else {
+                        } else {
         ?>
-                    <th>Price</th>
+                        <th>Price</th>
+        <?php
+                        }
+        ?>
+                    </tr>
+        <?php
+                    foreach($items as $item){
+        ?>
+                    <tr>
+                        <td><?= $item[1] ?></td>
+                        <td><?= $item[2] ?></td>
+        <?php
+                        if($differentSizes){
+        ?>
+                        <td><?= $item[3] ?></td>
+        <?php
+                        }
+        ?>
+                    </tr>
         <?php
                     }
         ?>
-                </tr>
-        <?php
-                foreach($items as $item){
-        ?>
-                <tr>
-                    <td><?= $item[1] ?></td>
-                    <td><?= $item[2] ?></td>
-        <?php
-                    if($differentSizes){
-        ?>
-                    <td><?= $item[3] ?></td>
-        <?php
-                    }
-        ?>
-                </tr>
-        <?php
-                }
-        ?>
-            </table>
+                </table>
+            </div>
         <?php
             }
         ?>
         <?php include "footer.html";?>
+        <script src="menu.js"></script>
     </body>
 </html>

@@ -82,3 +82,38 @@ div.gallery
 	right: 16px;
 	color: yellow;
 }
+.accordion {
+	background-color: goldenrod;
+	color: black;
+	font-weight: bold;
+	font-size: 14pt;
+	font-family: serif;
+	cursor: pointer;
+	padding: 8px;
+	width: 50%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	margin: 1px;
+  }
+.active, .accordion:hover {
+	background-color: yellow;
+}
+.panel {
+	padding: 0 18px;
+  
+	display: none;
+	overflow: hidden;
+}
+.accordion:after {
+	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: black;
+	float: right;
+	margin-left: 5px;
+  }
+  
+  .active:after {
+	content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }

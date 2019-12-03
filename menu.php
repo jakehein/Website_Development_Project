@@ -16,7 +16,6 @@
     </head>
     <body>
         <?php include "heading.php";?>
-        <p>Customer can select items in menu to order if logged in. Radio menu selection (disable if not logged in). Add totals for items selected.</p>
         <h1>Menu:</h1>
 
         <?php

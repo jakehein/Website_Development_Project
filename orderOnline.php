@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <p>Everything I just wrote in Menu page. Make that page static instead. Owner has ability to edit menu</p>
         <?php include "footer.html";?>
     </body>

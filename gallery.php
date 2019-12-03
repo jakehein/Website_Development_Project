@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <h1>Submit images here!</h1>
         <div class="gallery">
             <a target="_blank" href = "chinese1.jpeg">

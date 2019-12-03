@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <p>Customers have ability to "claim" promotions, Managers have ability to "create" promotions</p>
         <?php include "footer.html";?>
     </body>

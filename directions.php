@@ -14,10 +14,11 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <h1>Find Us At:</h1>
+		<!--   
         <div id="map" style="width:50%; height:400px;"></div>
-<!--        <script>
+     <script>
             function myMap() {
                 var restaurant = {lat: 44.021431, lng: -88.546825};
                 var map = new google.maps.Map(document.getElementById('map'), {zoom: 20, center: restaurant});

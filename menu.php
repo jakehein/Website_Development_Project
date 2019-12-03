@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <p>Customer can select items in menu to order if logged in. Radio menu selection (disable if not logged in). Add totals for items selected.</p>
         <?php include "footer.html";?>
     </body>

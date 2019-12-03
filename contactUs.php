@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
-        <?php include "heading.html";?>
+        <?php include "heading.php";?>
         <form action="contactSubmit.php" method="post">
 			<div class="contactDiv">
 				<label for="customerName">Name(Optional):</label>
@@ -34,7 +34,6 @@
 				<input type="submit" value="Submit">
 			</div>
 		</form>
-        <p>Customer fills out form, form data is sent to business email</p>
         <?php include "footer.html";?>
     </body>
 </html>

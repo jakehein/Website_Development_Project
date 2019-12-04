@@ -1,5 +1,6 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+    require_once("database/menuUtility.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -12,11 +13,22 @@
         <title>Jade Dragon</title>
         <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
+        <script src="menu.js"></script>
     </head>
     <body>
         <?php include "heading.php";?>
         <!--<p>Everything I just wrote in Menu page. Make that page static instead. Owner has ability to edit menu</p>-->
-        
+
+        <section class="menu">
+            <h1>Menu: </h1>
+            <?php include "menuBody.php"; ?>
+        </section>
+
+        <section class="cart">
+            <h1>Cart: </h1>
+            <?php include "cart.php";?>
+        </section>
+
         <?php include "footer.html";?>
     </body>
 </html>

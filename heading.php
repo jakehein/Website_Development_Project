@@ -7,7 +7,7 @@
 	if(is_logged_in()){
 		$signUp = $_SESSION["name"];
 		$login = "Logout";
-		$userURL = "userAccount.php";
+		$userURL = "account.php";
 		$loginURL = "logout.php";
 	}
 ?>

@@ -107,7 +107,7 @@ div.gallery
 	overflow: hidden;
 }
 .accordion:after {
-	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	content: '\2795'; /* Unicode character for "plus" sign (+) */
 	font-size: 13px;
 	color: black;
 	float: right;

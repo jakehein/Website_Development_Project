@@ -1,5 +1,14 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+	require_once("database/galleryUtility.php");
+	
+	$images = get_approved_images();
+	$errorMsg = "";
+	$flashMsg = "";
+	if(isset($_SESSION["flash"])){
+		$flashMsg = $_SESSION["flash"];
+		unset($_SESSION["flash"]);
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -12,29 +21,29 @@
         <title>Jade Dragon</title>
         <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
+		<link rel="stylesheet" type="text/css" href="gallery.css">
     </head>
     <body>
         <?php include "heading.php";?>
-        <h1>Submit images here!</h1>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese1.jpeg">
-                <img src="chinese1.jpeg" alt="Chinese1" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese2.jpg">
-                <img src="chinese2.jpg" alt="Chinese2" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese3.jpg">
-                <img src="chinese3.jpg" alt="Chinese3" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <p>Customers add photos to Server, manager approves photos to website and owner can delete images</p>
+        <h1><a href="galleryUpload.php">Submit images here!</a></h1>
+		<p>'<?= $flashMsg ?>'</p>
+		<?php
+			if(count($images) === 0){
+				$errorMsg = "No images yet. Be the first to upload!!!";
+			}else{
+				foreach($images as $image){
+					?>
+					<div class="gallery">
+						<a target="_blank" href="uploads/<?= $image["fileName"] ?>.jpg">
+						<img src="uploads/<?= $image["fileName"] ?>.jpg" alt="<?= $image["fileName"] ?>" width="200">
+						</a>
+						<div class="desc"><?= $image["description"] ?></div>
+					</div>
+					<?php
+				}
+			}
+		?>
+		<p><?= $errorMsg ?></p>
         <?php include "footer.html";?>
     </body>
 </html>

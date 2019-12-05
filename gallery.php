@@ -9,7 +9,6 @@
 	if(isset($_SESSION["status"])){
 		$owner = strcmp($_SESSION["status"],"Owner") === 0;
 		if($_SERVER['REQUEST_METHOD'] === 'POST' && $owner){
-			var_dump($_POST);
 			if(isset($_POST["approve"])){
 				approve_image($_POST["filename"]);
 			}

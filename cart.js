@@ -90,8 +90,8 @@ function addItemToCart(itemName, itemPrice) {
             return;
         }
     }
-    var removeImg = new Image();
-    removeImg.src = "images/invalid.png";
+    //var removeImg = new Image();
+    //removeImg.src = "images/invalid.png";
     var cartRowContents = `
         <div class="cartItem cartColumn">
             <span class="cartItemName">${itemName}</span>
@@ -99,7 +99,7 @@ function addItemToCart(itemName, itemPrice) {
         <span class="cartPrice cartColumn">${itemPrice}</span>
         <div class="cartColumn">
             <input class="cartQuantity" type="number" value="1">
-            <button class="removeFromCart" type="button"><img src="images/invalid.png"></button>
+            <button class="removeFromCart" type="button"><img width="15" height="15" src="images/invalid.png"></button>
         </div>`;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);

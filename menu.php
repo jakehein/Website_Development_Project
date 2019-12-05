@@ -3,6 +3,10 @@
     require_once("database/menuUtility.php");
     $onlineOrderMenu = false;
     global $onlineOrderMenu;
+
+    if(isset($_SESSION["status"])){
+		$owner = $_SESSION["status"] == "Owner";
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -18,6 +22,11 @@
     </head>
     <body>
         <?php include "heading.php";?>
+        <?php
+        if ($owner){
+            include "menuItemAdd.php";
+        }
+        ?>
         <h1>Menu:</h1>
         <?php include "menuBody.php"; ?>
 

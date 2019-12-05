@@ -32,8 +32,8 @@
 			// if everything is ok, try to upload file
 			} else {
 				$target_dir = "uploads/";
-				$filename = upload_image_details($comment);
-				$target_file = $target_dir . $filename . "." . $imageFileType;
+				$filename = upload_image_details($imageFileType, $comment);
+				$target_file = $target_dir . $filename;
 				if (move_uploaded_file($_FILES["imageSelect"]["tmp_name"], $target_file)) {
 					redirect("gallery.php", "File successfully uploaded! Pending approval.");
 				}

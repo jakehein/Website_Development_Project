@@ -26,20 +26,22 @@
     <body>
         <?php include "heading.php";?>
         <h1><a href="galleryUpload.php">Submit images here!</a></h1>
-		<p>'<?= $flashMsg ?>'</p>
+		<p><?= $flashMsg ?></p>
 		<?php
 			if(count($images) === 0){
 				$errorMsg = "No images yet. Be the first to upload!!!";
 			}else{
 				foreach($images as $image){
-					?>
-					<div class="gallery">
-						<a target="_blank" href="uploads/<?= $image["fileName"] ?>.jpg">
-						<img src="uploads/<?= $image["fileName"] ?>.jpg" alt="<?= $image["fileName"] ?>" width="200">
-						</a>
-						<div class="desc"><?= $image["description"] ?></div>
-					</div>
-					<?php
+					if(file_exists("uploads/" . $image["fileName"])){
+						?>
+						<div class="gallery">
+							<a target="_blank" href="uploads/<?= $image["fileName"] ?>">
+							<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
+							</a>
+							<div class="desc"><?= $image["description"] ?></div>
+						</div>
+						<?php
+					}
 				}
 			}
 		?>

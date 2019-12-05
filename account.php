@@ -130,7 +130,7 @@
 				<div class="credentials">
 					<div id="fields">
 						<div class="registerlabel">
-							<label for="username">* Username: </label><br>
+							<label for="username">Username: </label><br>
 							<input class="registerField" id="username" name="username" value='<?= $username ?>' required>
 							<input type="hidden" name="originalUsername" value='<?= $username ?>'>
 							<div>
@@ -138,11 +138,11 @@
 							</div>
 						</div>
 						<div class="registerlabel">
-							<label for="password">* Password: </label><br>
+							<label for="password">Password: </label><br>
 							<input type="password" class="registerField" id="password" name="password" value='<?= $password ?>' disabled>
 						</div>
 						<div class="registerlabel">
-							<label for="passwordConfirm">* Confirm Password: </label><br>
+							<label for="passwordConfirm">Confirm Password: </label><br>
 							<input type="password" class="registerField" id="passwordConfirm" name="passwordConfirm" disabled>
 						</div>
 						<div class="registerlabel">
@@ -181,28 +181,27 @@
 					</div>
 				</div>
 				<div>
-				<fieldset id="personalFields">
-					<legend>Personal Info</legend>
-					<div class="registerlabel">
-						<label for="firstname">* First Name: </label><br>
-						<input class="registerField" id="firstname" name="firstname" value='<?= $firstname ?>' required>
-					</div>
-					<div class="registerlabel">
-						<label for="lastname">* Last Name: </label><br>
-						<input class="registerField" id="lastname" name="lastname" value='<?= $lastname ?>' required>
-					</div>
-					<div class="registerlabel">
-						<label for="email">* E-Mail: </label><br>
-						<input type="email" class="registerField" id="email" name="email" value='<?= $email ?>' required>
-					</div>
-					</legend>
-				</fieldset>
+					<fieldset id="personalFields">
+						<legend>Personal Info</legend>
+						<div class="registerlabel">
+							<label for="firstname">First Name: </label><br>
+							<input class="registerField" id="firstname" name="firstname" value='<?= $firstname ?>' required>
+						</div>
+						<div class="registerlabel">
+							<label for="lastname">Last Name: </label><br>
+							<input class="registerField" id="lastname" name="lastname" value='<?= $lastname ?>' required>
+						</div>
+						<div class="registerlabel">
+							<label for="email">E-Mail: </label><br>
+							<input type="email" class="registerField" id="email" name="email" value='<?= $email ?>' required>
+						</div>
+					</fieldset>
 				</div>
 				<div>
 					<fieldset>
 						<legend>Address</legend>
 						<div class="registerlabel">
-							<label for="address1">* Street Address: </label><br>
+							<label for="address1">Street Address: </label><br>
 							<input class="registerField" id="address1" name="address1" value='<?= $address1 ?>' required>
 						</div>
 						<div class="registerlabel">
@@ -210,23 +209,20 @@
 							<input class="registerField" id="address2" name="address2" value='<?= $address2 ?>' >
 						</div>
 						<div class="registerlabel">
-							<label for="city">* City</label><br>
+							<label for="city">City</label><br>
 							<input class="registerField" id="city" name="city" value='<?= $city ?>' required>
 						</div>
 						<div class="registerlabel">
-							<label for="state">* State:</label><br>
+							<label for="state">State:</label><br>
 							<input class="registerField" id="state" name="state" value='<?= $state ?>' required>
 						</div>
 						<div class="registerlabel">
-							<label for="zipcode">* Zipcode:</label><br>
+							<label for="zipcode">Zipcode:</label><br>
 							<input class="registerField" id="zipcode" name="zipcode" value='<?= $zipcode ?>' required>
 						</div>
 					</fieldset>
 				</div>
 				<input type="submit" value="Update" id="update">
-				<div>
-					<span>* Required Field</span>
-				</div>
 			</div>
 		</form>
         <?php include "footer.html";?>

@@ -26,6 +26,7 @@
         $category = $_POST["category"];
     
         add_menu_item($itemName, $largePrice, $smallPrice, $category);
+        $_SESSION["addItemSuccess"] = TRUE;
     }
 ?>
 <!DOCTYPE HTML>
@@ -44,6 +45,12 @@
         <?php include "heading.php";?>
         <?php
         if ($owner){
+            if(isset($_SESSION["addItemSuccess"])){
+                ?>
+                <p><?= $itemName ?> item successfully added!</p>
+                <?php
+                unset($_SESSION["addItemSuccess"]);
+            }
             ?>
             <br>
             <button class="accordion">Add new item: </button>

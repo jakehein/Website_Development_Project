@@ -1,9 +1,11 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+    require_once("session.php");
     require_once("database/menuUtility.php");
     $onlineOrderMenu = false;
     global $onlineOrderMenu;
 
+    $owner = false;
     if(isset($_SESSION["status"])){
 		$owner = $_SESSION["status"] == "Owner";
 	}
@@ -24,7 +26,13 @@
         <?php include "heading.php";?>
         <?php
         if ($owner){
-            include "menuItemAdd.php";
+            ?>
+            <br>
+            <button class="accordion">Add new item: </button>
+            <div class="panel">
+            <?php include "menuItemAdd.php"; ?>
+            </div>
+            <?php
         }
         ?>
         <h1>Menu:</h1>

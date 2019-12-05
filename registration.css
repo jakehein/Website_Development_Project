@@ -68,10 +68,6 @@ fieldset div
 #fields
 {
 	padding-right: 20px;
-}
-
-.floatLeft
-{
 	float: left;
-	clear: both;
+	clear:both;
 }

@@ -1,6 +1,8 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
     require_once("database/menuUtility.php");
+    $onlineOrderMenu = true;
+    global $onlineOrderMenu;
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -21,7 +23,7 @@
 
         <section class="menu">
             <h1>Menu: </h1>
-            <?php include "menuBody.php"; ?>
+            <?php include "menuBody.php";?>
         </section>
 
         <section class="cart">

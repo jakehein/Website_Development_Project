@@ -33,14 +33,29 @@
 <?php
             foreach($items as $item){
 ?>
-            <tr>
-                <td><?= $item[1] ?></td>
+            <tr class="item">
+                <td class="itemName"><?= $item[1] ?></td>
+                <!-- Attempting to make optional buttons that'll only appear
+                     on the orderOnline page-->
+                <?php if($onlineOrderMenu == true) {
+                ?>
+                <td><input type="button" class="itemPrice large" value=<?= $item[2] ?>></td>
+                    <?php
+                } else { //Else make a normal price text display
+                ?>
                 <td><?= $item[2] ?></td>
-<?php
+                <?php
+                }
                 if($differentSizes){
-?>
+                    if($onlineOrderMenu == true) { //attempt to make a button for online ordering
+                ?>
+                        <td><input type="button" class="itemPrice small" value=<?= $item[3] ?>></td>
+                <?php
+                    } else {
+?>                      <!-- otherwise just make a normal small price display -->
                 <td><?= $item[3] ?></td>
 <?php
+                    }
                 }
 ?>
             </tr>

@@ -7,11 +7,11 @@
 	if(is_logged_in()){
 		$signUp = $_SESSION["name"];
 		$login = "Logout";
-		$userURL = "account.php";
+		$userURL = "userAccount.php";
 		$loginURL = "logout.php";
 	}
 ?>
-<!--
+
 <DOCTYPE HTML>
 <html lang = "en">
     <head>
@@ -20,11 +20,11 @@
           <meta name="description" content="This is a student made website for Jade Dragon.">
           <meta name="keywords" content="food, chinese, take out, delivery, rice, noodle, chicken, pork, jade, dragon, crab, rangoon, general, tso, Jade Dragon, Oshkosh, WI, 54901, Chinese Menu, Chinese restaurant Oshkosh, Chinese restaurant 54901, Chinese food Oshkosh, Chinese food 54901, Chinese food delivery, Chinese delivery Oshkosh, Chinese delivery 54901, Chinese food catering, Chinese carry out, Chinese dine in, Chinese party trays, Chinese food order online">
           <title>Jade Dragon</title>
-          <link rel="icon" href="images/dragon.jpg"> #Test Your Might
+          <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
           <link rel="stylesheet" type="text/css" href="jadeDragon.css">
     </head>
     <body>
--->
+
 		<header align = "center">
 			<div id="headerContainer">
 				<img src = "images/banner.jpg" alt = "website_banner">
@@ -44,7 +44,5 @@
                 </nav>
             </div>
         </div>
-		<!--
     </body>
 </html>
--->

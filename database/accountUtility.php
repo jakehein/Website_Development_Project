@@ -19,6 +19,27 @@
 		return count($result) === 0;
 	}
 	
+	function get_user_status($username){
+		global $db;
+		try{
+			$sql = "SELECT status FROM User WHERE userName = ? LIMIT 1";
+			$statement = $db->prepare($sql);
+			$statement->execute([$username]);
+		}catch (PDOException $e){
+			?>
+				Error getting user from database check if user free
+			<?php
+			db_disconnect();
+			exit();
+		}
+		$status = "";
+		foreach($statement as $row){
+			$status = $row["status"];
+		}
+		
+		return $status;
+	}
+	
 	function register_user($username, $password, $firstname, $lastname, $email, $address1, $address2, $state, $city, $zipcode){
 		global $db;
 		$status = "Customer";

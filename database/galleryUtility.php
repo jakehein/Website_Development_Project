@@ -37,7 +37,7 @@
 	function upload_image_details($fileType, $description){
 		global $db;
 		try{
-			$sql = "INSERT INTO GalleryList(fileName, description, status) VALUES('tempFile', :description, 1)";
+			$sql = "INSERT INTO GalleryList(fileName, description, status) VALUES('tempFile', :description, 0)";
 			$statement = $db->prepare($sql);
 			$statement->bindParam(":description", $description);
 			$statement->execute();

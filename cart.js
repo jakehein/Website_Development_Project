@@ -34,22 +34,37 @@ function createAddToCartEventListener(item) {
     console.log("event listener added"); //remove
 }
 
-///CONTINUE FROM HERE
-function purchaseClicked() {
+function checkoutClicked() {
     alert('Order Placed.');
-    var cartItems = document.getElementsByClassName('cartItems');
-    cartItems.forEach(placeOrder);
-    //while (cartItems.hasChildNodes()) {
-    //    cartItems.removeChild(cartItems.firstChild);
-    //}
+    var cartItems = document.getElementsByClassName('cartItems')[0];
+    //[...cartItems].forEach(placeOrder);
+    while (cartItems.hasChildNodes()) {
+        //call method to insert POST statement back to page with hidden inputs
+        placeOrderForm(cartItems);
+        console.log("item deleted");
+        cartItems.removeChild(cartItems.firstChild);
+    }
     updateCartTotal();
 }
 
-var placeOrder = function(item) {
-    var itemChild = item.firstChild;
+var placeOrderForm = function(cartItems) {
+
+    //<form action="lab7.php" class="button" id="gameForm" method="POST">
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[0]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[1]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[2]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[3]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[4]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[5]?>>
+    //    <input type="hidden" class="hiddenGameValues" name="totalCorrect" value=<?=$totalCorrect?>>
+    //    <input type="hidden" class="hiddenGameValues" name="highScore" value=<?=$highScore?>>
+    //    <input type="submit" id="newGame" value="New Game"></button>
+    //</form>
+
+    //var itemChild = item.firstChild;
     //add each item to the order here
     //remove item from cart
-    item.removeChild(itemChild);
+    //item.removeChild(itemChild);
 }
 
 function removeCartItem(event) {

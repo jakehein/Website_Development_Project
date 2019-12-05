@@ -15,12 +15,12 @@
 	
 }
 
-fieldset 
-{
+fieldset {
 	margin-top: 10px;
 	color: yellow;
 	border-color: yellow;
 	border-width: 0px;
+	color: yellow;
 }
 
 span
@@ -74,4 +74,8 @@ fieldset div
 {
 	float: left;
 	clear: both;
+}
+
+.errorMsg {
+	color: red;
 }

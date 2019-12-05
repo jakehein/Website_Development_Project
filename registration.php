@@ -24,6 +24,7 @@
 	$validMatchImg = "images/invalid.png";
 
 	$valid_password = true;
+	$username_taken_error = "";
 	$invalid_password_msg = "";
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$username = $_POST["username"];
@@ -83,6 +84,8 @@
 			}
 		}else{
 			$registration_failed = true;
+			$password = "";
+			$username_taken_error = "That username is already in use.";
 		}
 	}
 ?>
@@ -112,6 +115,7 @@
 							<label for="username">* Username: </label><br>
 							<input class="registerField" id="username" name="username" value='<?= $username ?>' required>
 						</div>
+						<span class="errorMsg"><?= $username_taken_error?></span>
 						<div class="registerlabel">
 							<label for="password">* Password: </label><br>
 							<input type="password" class="registerField" id="password" name="password" value='<?= $password ?>' required>
@@ -120,6 +124,7 @@
 							<label for="passwordConfirm">* Confirm Password: </label><br>
 							<input type="password" class="registerField" id="passwordConfirm" name="passwordConfirm" required>
 						</div>
+						<span class="errorMsg"><?= $invalid_password_msg?></span>
 					</div>
 					<div id="passwordRequirements">
 						<fieldset>

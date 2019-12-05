@@ -64,7 +64,7 @@
 												<form method="post">
 													<input type="hidden" name="filename" value="<?= $image["fileName"] ?>"/>
 													<input type="submit" name="approve" value="Approve"/>
-													<input type="submit" name="delete" value="delete"/>
+													<input type="submit" name="delete" value="Delete"/>
 												</form>
 											</div>
 											<div class="desc"><?= $image["description"] ?></div>
@@ -94,8 +94,20 @@
 								<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
 								</a>
 								<div class="desc"><?= $image["description"] ?></div>
+								<?php
+								if($owner){
+								?>
+								<div>
+									<form method="post">
+										<input type="hidden" name="filename" value="<?= $image["fileName"] ?>"/>
+										<input type="submit" name="delete" value="Delete"/>
+									</form>
+								</div>
+								<?php
+								}
+								?>
 							</div>
-							<?php
+								<?php
 						}
 					}
 				}

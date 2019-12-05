@@ -11,7 +11,6 @@ var matchValidation = document.getElementById("validMatch");
 
 passwordInput.addEventListener("keyup", validatePassword);
 passwordConfirmInput.addEventListener("keyup", validatePassword);
-
 createUserForm.onsubmit = function(){
 	return validatePassword();
 }

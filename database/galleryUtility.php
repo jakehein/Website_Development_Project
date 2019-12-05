@@ -33,5 +33,32 @@
 		}
 		return $result;
 	}
-
+	
+	function upload_image_details($fileType, $description){
+		global $db;
+		try{
+			$sql = "INSERT INTO GalleryList(fileName, description, status) VALUES('tempFile', :description, 1)";
+			$statement = $db->prepare($sql);
+			$statement->bindParam(":description", $description);
+			$statement->execute();
+			
+			$sql = "SELECT galleryID FROM GalleryList WHERE fileName = 'tempFile' LIMIT 1";
+			$statement = $db->prepare($sql);
+			$statement->execute();
+			foreach($statement as $row){
+				$filename = "galleryImage" . $row["galleryID"] . "." . $fileType;
+			}
+			
+			$sql = "UPDATE GalleryList SET fileName = :fileName WHERE fileName = 'tempFile'";
+			$statement = $db->prepare($sql);
+			$statement->bindParam("fileName", $filename);
+			$statement->execute();
+		}catch(PDOException $e){
+			echo $e;
+			?>
+				error uploading image info
+			<?php
+		}
+		return $filename;
+	}
 ?>

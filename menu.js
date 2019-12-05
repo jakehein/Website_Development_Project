@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", function () {
     var acc = document.getElementsByClassName("accordion");
     var i;
     for (i = 0; i < acc.length; i++) {
@@ -13,4 +13,4 @@ window.onload = function () {
             }
         });
     }
-}
+});

@@ -15,6 +15,7 @@
         <title>Jade Dragon</title>
         <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
+        <script src="cart.js"></script>
         <script src="menu.js"></script>
     </head>
     <body>

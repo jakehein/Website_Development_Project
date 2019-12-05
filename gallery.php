@@ -1,5 +1,20 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+	require_once("session.php");
+	require_once("database/galleryUtility.php");
+	
+	$images = get_approved_images();
+	$pending = get_unapproved_images();
+	$errorMsg = "";
+	$flashMsg = "";
+	$owner = false;
+	if(isset($_SESSION["status"])){
+		$owner = $_SESSION["status"] == "Owner";
+	}
+	if(isset($_SESSION["flash"])){
+		$flashMsg = $_SESSION["flash"];
+		unset($_SESSION["flash"]);
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -12,29 +27,61 @@
         <title>Jade Dragon</title>
         <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
+		<link rel="stylesheet" type="text/css" href="gallery.css">
     </head>
     <body>
         <?php include "heading.php";?>
-        <h1>Submit images here!</h1>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese1.jpeg">
-                <img src="chinese1.jpeg" alt="Chinese1" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese2.jpg">
-                <img src="chinese2.jpg" alt="Chinese2" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href = "images/chinese3.jpg">
-                <img src="chinese3.jpg" alt="Chinese3" width="500">
-            </a>
-            <div class="desc">This is definitely chinese food</div>
-        </div>
-        <p>Customers add photos to Server, manager approves photos to website and owner can delete images</p>
+		<div>
+			<?php
+				if($owner){
+					?>
+					<p>---Pending Approval---</p>
+						<?php
+							if(count($pending) === 0){
+								$errorMsg = "No Pending Images";
+							}else{
+								foreach($pending as $image){
+									if(file_exists("uploads/" . $image["fileName"])){
+										?>
+										<div class="gallery">
+											<a target="_blank" href="uploads/<?= $image["fileName"] ?>">
+											<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
+											</a>
+											<div class="desc"><?= $image["description"] ?></div>
+										</div>
+										<?php
+									}
+								}
+							}
+						?>
+					<p class="clearFloat">---Approved---</p>
+					<?php
+				}
+			?>
+		</div>
+        <h1><a href="galleryUpload.php">Submit images here!</a></h1>
+		<p><?= $flashMsg ?></p>
+		<div>
+			<?php
+				if(count($images) === 0){
+					$errorMsg = "No images yet. Be the first to upload!!!";
+				}else{
+					foreach($images as $image){
+						if(file_exists("uploads/" . $image["fileName"])){
+							?>
+							<div class="gallery">
+								<a target="_blank" href="uploads/<?= $image["fileName"] ?>">
+								<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
+								</a>
+								<div class="desc"><?= $image["description"] ?></div>
+							</div>
+							<?php
+						}
+					}
+				}
+			?>
+		</div>
+		<p><?= $errorMsg ?></p>
         <?php include "footer.html";?>
     </body>
 </html>

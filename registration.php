@@ -107,7 +107,7 @@
 		<form method="POST" id="registrationForm">
 			<div class="registrationForm">
 				<div class="credentials">
-					<div id="fields">
+					<div id="fields" class="floatLeft">
 						<div class="registerlabel">
 							<label for="username">* Username: </label><br>
 							<input class="registerField" id="username" name="username" value='<?= $username ?>' required>

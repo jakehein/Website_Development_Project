@@ -74,7 +74,7 @@
 				</div>
 				<div><?= $errorMsg ?></div>
 				<div>
-					<input type="submit" id="submit" value="submit">
+					<input type="submit" id="submit" value="Upload">
 				</div>
 			</form>
 		<?php include "footer.html";?>

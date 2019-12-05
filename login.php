@@ -18,6 +18,7 @@
 
 		if(check_credentials($username, $password)){
 			$_SESSION["name"] = $username;
+			$_SESSION["status"] = get_user_status($username);
 			redirect("jadeDragon.php");
 		}else{
 			$errorMsg = "Username and Password do not match";

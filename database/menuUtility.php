@@ -50,7 +50,7 @@
     }
 
     function add_menu_item($itemName, $largePrice, $smallPrice, $category){
-        global $db
+        global $db;
         $sql = "INSERT INTO MenuItem(itemName, largePrice, smallPrice, category) VALUES(:itemName, :largePrice, :smallPrice, :category)";
         $statement = $db->prepare($sql);
         $statement->bindParam(":itemName", $itemName);

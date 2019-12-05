@@ -33,6 +33,36 @@
 		}
 		return $result;
 	}
+
+	function approve_image($filename){
+		global $db;
+		try{
+			$sql = "UPDATE GalleryList SET status = 1 WHERE fileName = :filename";
+			$statement = $db->prepare($sql);
+			$statement->bindParam(":filename", $filename);
+			$statement->execute();
+		}catch(PDOException $e){
+			echo $e;
+			?>
+				error getting unapproved images from db
+			<?php
+		}
+	}
+
+	function delete_image($filename){
+		global $db;
+		try{
+			$sql = "DELETE FROM GalleryList WHERE fileName = :filename";
+			$statement = $db->prepare($sql);
+			$statement->bindParam(":filename", $filename);
+			$statement->execute();
+		}catch(PDOException $e){
+			echo $e;
+			?>
+				error getting unapproved images from db
+			<?php
+		}
+	}
 	
 	function upload_image_details($fileType, $description){
 		global $db;

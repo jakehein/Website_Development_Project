@@ -3,18 +3,27 @@
 	require_once("session.php");
 	require_once("database/galleryUtility.php");
 	
-	$images = get_approved_images();
-	$pending = get_unapproved_images();
 	$errorMsg = "";
 	$flashMsg = "";
 	$owner = false;
 	if(isset($_SESSION["status"])){
-		$owner = $_SESSION["status"] == "Owner";
+		$owner = strcmp($_SESSION["status"],"Owner") === 0;
+		if($_SERVER['REQUEST_METHOD'] === 'POST' && $owner){
+			var_dump($_POST);
+			if(isset($_POST["approve"])){
+				approve_image($_POST["filename"]);
+			}
+			if(isset($_POST["delete"])){
+				delete_image($_POST["filename"]);
+			}
+		}
 	}
 	if(isset($_SESSION["flash"])){
 		$flashMsg = $_SESSION["flash"];
 		unset($_SESSION["flash"]);
 	}
+	$images = get_approved_images();
+	$pending = get_unapproved_images();
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -38,15 +47,27 @@
 					<p>---Pending Approval---</p>
 						<?php
 							if(count($pending) === 0){
-								$errorMsg = "No Pending Images";
+								
+								?>
+									<p>No Pending Images</p>
+								<?php
 							}else{
 								foreach($pending as $image){
 									if(file_exists("uploads/" . $image["fileName"])){
 										?>
 										<div class="gallery">
-											<a target="_blank" href="uploads/<?= $image["fileName"] ?>">
-											<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
-											</a>
+											<div>
+												<a target="_blank" href="uploads/<?= $image["fileName"] ?>">
+												<img src="uploads/<?= $image["fileName"] ?>" alt="<?= $image["fileName"] ?>" width="200">
+												</a>
+											</div>
+											<div>
+												<form method="post">
+													<input type="hidden" name="filename" value="<?= $image["fileName"] ?>"/>
+													<input type="submit" name="approve" value="Approve"/>
+													<input type="submit" name="delete" value="delete"/>
+												</form>
+											</div>
 											<div class="desc"><?= $image["description"] ?></div>
 										</div>
 										<?php

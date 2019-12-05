@@ -1,6 +1,8 @@
 <?php
     $categories = get_categories();
 
+    global $onlineOrderMenu;
+
     foreach($categories as $category){
         $items = get_menu_by_category($category);
 

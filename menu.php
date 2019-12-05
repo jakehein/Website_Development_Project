@@ -2,6 +2,7 @@
     error_reporting(E_ALL | E_STRICT);
     require_once("database/menuUtility.php");
     $onlineOrderMenu = false;
+    global $onlineOrderMenu;
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

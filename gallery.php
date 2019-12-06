@@ -79,7 +79,7 @@
 				}
 			?>
 		</div>
-        <h1><a href="galleryUpload.php">Submit images here!</a></h1>
+        <h1><a href="galleryUpload.php">&gt;&gt;&gt;Submit images here&lt;&lt;&lt;</a></h1>
 		<p><?= $flashMsg ?></p>
 		<div>
 			<?php

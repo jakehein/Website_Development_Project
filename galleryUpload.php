@@ -2,7 +2,7 @@
     error_reporting(E_ALL | E_STRICT);
 	require_once("session.php");
 	require_once("database/galleryUtility.php");
-	ensure_logged_in();
+	ensure_logged_in("galleryUpload.php");
 	$errorMsg = "";
 	
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){

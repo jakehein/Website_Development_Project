@@ -51,15 +51,18 @@ function checkoutClicked() {
 //WORKING ON THIS
 /*var placeOrderForm = function(cartItems) {
     //STR_part(1)
-    var formHeader = `<form action="ENTER SOMETHING HERE.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">`;
+    var formHeader = `<form action="ENTER SOMETHING HERE.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">
+        <input type="hidden" class="" name="userName" value=<?=$_SESSION["name"]?>>
+        <input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
+    `;
 
     for(var i = 0; i < cartRowItems.length; i++) {
     //STR_part(2)...3...4...(N-1)
         var formBody += `
-            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName(itemID)[0].innerHTML}>
-            <input type="hidden" class="" name="itemName[]" value=${cartRowItems[i].getElementsByClassName(itemName)[0].innerHTML}>
-            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName(itemPrice)[0].innerHTML}>
-            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName(itemQuantity)[0].innerHTML}>
+            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName('itemID')[0].innerHTML}>
+            //<input type="hidden" class="" name="itemName[]" value=${cartRowItems[i].getElementsByClassName('itemName')[0].innerHTML}>
+            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName('itemPrice')[0].innerHTML}>
+            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName('itemQuantity')[0].innerHTML}>
             `;
     }
     //STR_part(N)

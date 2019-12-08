@@ -1,8 +1,14 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
     require_once("database/menuUtility.php");
+    require_once("session.php");
+    ensure_logged_in("orderOnline.php");
     $onlineOrderMenu = true;
     global $onlineOrderMenu;
+
+    
+
+
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -20,7 +26,6 @@
     </head>
     <body>
         <?php include "heading.php";?>
-        <!--<p>Everything I just wrote in Menu page. Make that page static instead. Owner has ability to edit menu</p>-->
 
         <section class="menu">
             <h1>Menu: </h1>

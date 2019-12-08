@@ -49,17 +49,17 @@ function checkoutClicked() {
     updateCartTotal();
 }
 //WORKING ON THIS
-var placeOrderForm = function(cartItems) {
+/*var placeOrderForm = function(cartItems) {
     //STR_part(1)
-    var formHeader = `<form action="lab7.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">`;
+    var formHeader = `<form action="ENTER SOMETHING HERE.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">`;
 
-    while(/*cartItems has children or something like that*/) {
+    for(var i = 0; i < cartRowItems.length; i++) {
     //STR_part(2)...3...4...(N-1)
         var formBody += `
-            <input type="hidden" class="" name="itemID[]" value=${itemID}>
-            <input type="hidden" class="" name="itemName[]" value=${itemName}>
-            <input type="hidden" class="" name="itemPrice[]" value=${itemPrice}>
-            <input type="hidden" class="" name="itemQuantity[]" value=${itemQuantity}>
+            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName(itemID)[0].innerHTML}>
+            <input type="hidden" class="" name="itemName[]" value=${cartRowItems[i].getElementsByClassName(itemName)[0].innerHTML}>
+            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName(itemPrice)[0].innerHTML}>
+            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName(itemQuantity)[0].innerHTML}>
             `;
     }
     //STR_part(N)
@@ -83,11 +83,13 @@ var placeOrderForm = function(cartItems) {
     //add each item to the order here
     //remove item from cart
     //item.removeChild(itemChild);
-}
+}*/
 
 function removeCartItem(event) {
     var remove = event.target;
-    remove.parentElement.parentElement.parentElement.remove();
+    //console.log(remove.parentElement.parentElement);
+    //console.log(remove.parentElement);
+    remove.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
@@ -103,9 +105,14 @@ function addToCartClicked(event) {
     console.log("addedToCartClicked occured"); //remove
     var button = event.target;
     var itemPrice = button.value;
+    var itemParent = button.parentElement;
+    console.log(itemParent.value + "   value"); //REMOVE
+    console.log(itemParent.innerHTML + "   innerHTML");
     var itemParent = button.parentElement.parentElement;//.parentElement;
-    //console.log(itemParent.value + "   value"); //REMOVE
-    //console.log(itemParent.innerHTML + "   innerHTML");
+
+    console.log(itemParent.value + "   value"); //REMOVE
+    console.log(itemParent.innerHTML + "   innerHTML");
+
     var itemName = itemParent.getElementsByClassName('itemName')[0].innerHTML;
     var itemID = itemParent.getElementsByClassName('itemID')[0].innerHTML;
     //var itemPrice = shopItem.getElementsByClassName('itemPrice').innerHTML;
@@ -114,14 +121,14 @@ function addToCartClicked(event) {
 }
 
 function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemPrice
-    var cartRow = document.createElement('div');
-    cartRow.classList.add('cartRow');
+    var cartRow = document.createElement('tr');
+    cartRow.classList.add('cartRowItems');
     var cartItems = document.getElementsByClassName('cartItems')[0];
     //var cartItemNames = cartItems.getElementsByClassName('cartItemName');
-    var cartItemPrices = cartItems.getElementsByClassName('cartPrice');
+    var cartItemPrices = document.getElementsByClassName('cartPrice');
     var cartItemIDs = cartItems.getElementsByClassName('cartItemID');
     for (var i = 0; i < cartItemIDs.length; i++) {
-        if (cartItemIDs[i].innerHTML == itemID && cartItemPrices[i].innerHTML == itemPrice) {
+        if (cartItemIDs[i].innerHTML == itemID && cartItemPrices[i] == itemPrice) {
                 alert('Already added. Try incrementing.');
                 return;
             }
@@ -130,7 +137,7 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
     //        alert('Already added. Try incrementing.');
     //        return;
     //    }
-    //}
+    }
 
     ///ADD ITEMID TO CART
     var cartRowContents = `
@@ -138,7 +145,7 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
             <td class="cartItemName">${itemName}</td>
             <td class="cartPrice">${itemPrice}</td>
             <td><input class="cartQuantity" type="number" value="1"></td>
-            <td><button class="removeFromCart" type="button"><img width="15" height="15" src="images/invalid.png"></button></td>
+            <td><button class="removeFromCart" type="button"></button></td>
         `;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
@@ -148,7 +155,7 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
 
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cartItems')[0];
-    var cartRows = cartItemContainer.getElementsByClassName('cartRow');
+    var cartRows = cartItemContainer.getElementsByClassName('cartRowItems');
     var total = 0;
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i];

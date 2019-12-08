@@ -37,7 +37,7 @@
             foreach($items as $item){
 ?>
             <tr class="item">
-                <td class="itemId"><?= $item[0] ?></td>
+                <td class="itemID"><?= $item[0] ?></td>
                 <td class="itemName"><?= $item[1] ?></td>
                 <!-- Attempting to make optional buttons that'll only appear
                      on the orderOnline page-->

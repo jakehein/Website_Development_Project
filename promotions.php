@@ -1,5 +1,6 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
+    require_once("database/menuUtility.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -15,7 +16,26 @@
     </head>
     <body>
         <?php include "heading.php";?>
-        <p>Customers have ability to "claim" promotions, Managers have ability to "create" promotions</p>
+
+        <h1>Special promotion items:</h1>
+        <h2>Lunch specials: $6.29 each!</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            <?php
+            $items = get_menu_by_category("Lunch Special");
+            foreach ($items as $item){
+            ?>
+            <tr>
+                <td class="itemId"><?= $item[0] ?></td>
+                <td class="itemName"><?= $item[1] ?></td>
+            </tr>
+            <?php
+            }
+            ?>
+        </table>
         <?php include "footer.html";?>
     </body>
 </html>

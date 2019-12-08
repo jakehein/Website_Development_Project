@@ -117,3 +117,11 @@ div.gallery
  .active:after {
 	content: "\2796"; /* Unicode character for "minus" sign (-) */
  }
+.removeFromCart {
+    background-image: url("images/invalid.png");
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+    border-style: inset;
+    background-repeat: no-repeat;
+}

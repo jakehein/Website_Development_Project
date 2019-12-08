@@ -6,7 +6,31 @@
     $onlineOrderMenu = true;
     global $onlineOrderMenu;
 
-    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $userName = $_SESSION['name'];
+        $total = $_POST['transactionTotal'];
+        $index = 0;
+        foreach ($_POST['itemID'] as $value) {
+            $itemID[$index++] = $value;
+            echo $itemID[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemName'] as $value) {
+            $itemName[$index++] = $value;
+            echo $itemName[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemPrice'] as $value) {
+            $itemPrice[$index++] = $value;
+            echo $itemPrice[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemQuantity'] as $value) {
+            $itemQuantity[$index++] = $value;
+            echo $itemQuantity[$index++];
+        }
+        //<input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
+    }
 
 
 ?>

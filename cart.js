@@ -41,20 +41,21 @@ function checkoutClicked() {
         //call method to insert POST statement back to page with hidden inputs
 
         //need to enable this
-        //placeOrderForm(cartItems);
+        placeOrderForm(cartItems);
         console.log("item deleted");
         console.log(cartItems.firstChild);
         cartItems.removeChild(cartItems.firstChild);
     }
     updateCartTotal();
 }
-//WORKING ON THIS
-/*var placeOrderForm = function(cartItems) {
+
+var placeOrderForm = function(cartItems) {
     //STR_part(1)
-    var formHeader = `<form action="ENTER SOMETHING HERE.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">
-        <input type="hidden" class="" name="userName" value=<?=$_SESSION["name"]?>>
+    var formHeader = `
+        <form action="orderOnline.php" class="cartForm" id="cartForm" method="POST">
+        //////////<input type="hidden" class="" name="userName" value=<?=$_SESSION["name"]?>>
         <input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
-    `;
+        `;
 
     for(var i = 0; i < cartRowItems.length; i++) {
     //STR_part(2)...3...4...(N-1)
@@ -70,23 +71,12 @@ function checkoutClicked() {
         <input type="submit" id="submit">
         </form>`; //INPUT HAD </BUTTON> TAG, NEEDED???
 
-    //<form action="lab7.php" class="button" id="gameForm" method="POST">
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[0]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[1]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[2]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[3]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[4]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[5]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="totalCorrect" value=<?=$totalCorrect?>>
-    //    <input type="hidden" class="hiddenGameValues" name="highScore" value=<?=$highScore?>>
-    //    <input type="submit" id="newGame" value="New Game"></button>
-    //</form>
 
     //var itemChild = item.firstChild;
     //add each item to the order here
     //remove item from cart
     //item.removeChild(itemChild);
-}*/
+}
 
 function removeCartItem(event) {
     var remove = event.target;

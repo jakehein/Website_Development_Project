@@ -78,7 +78,13 @@
         }
         ?>
         <h1>Menu:</h1>
-        <?php include "menuBody.php"; ?>
+        <div class="flexRow">
+            <div class="flexColumn">
+                <?php include "menuBody.php"; ?>
+            </div>
+            <div class="flexColumn">
+            </div>
+        </div>
 
         <?php include "footer.html";?>
         <script src="menu.js"></script>

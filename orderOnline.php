@@ -6,7 +6,31 @@
     $onlineOrderMenu = true;
     global $onlineOrderMenu;
 
-    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $userName = $_SESSION['name'];
+        $total = $_POST['transactionTotal'];
+        $index = 0;
+        foreach ($_POST['itemID'] as $value) {
+            $itemID[$index++] = $value;
+            echo $itemID[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemName'] as $value) {
+            $itemName[$index++] = $value;
+            echo $itemName[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemPrice'] as $value) {
+            $itemPrice[$index++] = $value;
+            echo $itemPrice[$index++];
+        }
+        $index = 0;
+        foreach ($_POST['itemQuantity'] as $value) {
+            $itemQuantity[$index++] = $value;
+            echo $itemQuantity[$index++];
+        }
+        //<input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
+    }
 
 
 ?>
@@ -27,15 +51,20 @@
     <body>
         <?php include "heading.php";?>
 
-        <section class="menu">
-            <h1>Menu: </h1>
-            <?php include "menuBody.php";?>
-        </section>
-
-        <section class="cart">
-            <h1>Cart: </h1>
-            <?php include "cart.php";?>
-        </section>
+        <div class="flexRow">
+            <div class="flexColumn">
+                <section class="menu">
+                    <h1>Menu: </h1>
+                    <?php include "menuBody.php";?>
+                </section>
+            </div>
+            <div class="flexColumn">
+                <section class="cart">
+                    <h1>Cart: </h1>
+                    <?php include "cart.php";?>
+                </section>
+            </div>
+        </div>
 
         <?php include "footer.html";?>
     </body>

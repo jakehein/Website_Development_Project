@@ -37,6 +37,7 @@ function checkoutClicked() {
     alert('Order Placed.');
     var cartItems = document.getElementsByClassName('cartItems')[0];
     //[...cartItems].forEach(placeOrder);
+    placeOrderForm(cartItems);
     while (cartItems.hasChildNodes()) {
         //call method to insert POST statement back to page with hidden inputs
 
@@ -48,18 +49,23 @@ function checkoutClicked() {
     }
     updateCartTotal();
 }
-//WORKING ON THIS
-/*var placeOrderForm = function(cartItems) {
-    //STR_part(1)
-    var formHeader = `<form action="ENTER SOMETHING HERE.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">`;
 
+//var callButton
+
+var placeOrderForm = function(cartItems) {
+    //STR_part(1)
+    var cartRowItems = cartItems.getElementsByClassName("cartRowItems")[0];
+    var formHeader = `
+        <form action="orderOnline.php" class="cartForm" id="cartForm" method="POST">
+        <input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
+        `;
+    var formBody = "";
     for(var i = 0; i < cartRowItems.length; i++) {
     //STR_part(2)...3...4...(N-1)
-        var formBody += `
-            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName(itemID)[0].innerHTML}>
-            <input type="hidden" class="" name="itemName[]" value=${cartRowItems[i].getElementsByClassName(itemName)[0].innerHTML}>
-            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName(itemPrice)[0].innerHTML}>
-            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName(itemQuantity)[0].innerHTML}>
+        formBody += `
+            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName('itemID')[0].innerHTML}>
+            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName('itemPrice')[0].innerHTML}>
+            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName('itemQuantity')[0].innerHTML}>
             `;
     }
     //STR_part(N)
@@ -67,23 +73,16 @@ function checkoutClicked() {
         <input type="submit" id="submit">
         </form>`; //INPUT HAD </BUTTON> TAG, NEEDED???
 
-    //<form action="lab7.php" class="button" id="gameForm" method="POST">
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[0]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[1]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[2]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[3]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[4]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[5]?>>
-    //    <input type="hidden" class="hiddenGameValues" name="totalCorrect" value=<?=$totalCorrect?>>
-    //    <input type="hidden" class="hiddenGameValues" name="highScore" value=<?=$highScore?>>
-    //    <input type="submit" id="newGame" value="New Game"></button>
-    //</form>
+    var form = formHeader + formBody + formFooter;
 
+        cartItems.innerHTML = form;
+        //cartItems.append(cartItems);
+        cartItems.getElementById("cartForm").submit();
     //var itemChild = item.firstChild;
     //add each item to the order here
     //remove item from cart
     //item.removeChild(itemChild);
-}*/
+}
 
 function removeCartItem(event) {
     var remove = event.target;

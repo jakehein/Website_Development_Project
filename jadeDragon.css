@@ -2,6 +2,7 @@ body
 {
     background-color: RGB(96,26,24);
 	background-image: url("images/background.jpg");
+	/*box-sizing: border-box;*/
     color: white;
 	width: 800px;
 	padding: 5px;
@@ -90,7 +91,7 @@ div.gallery
 	font-family: serif;
 	cursor: pointer;
 	padding: 8px;
-	width: 50%;
+	width: 100%;
 	text-align: left;
 	border: none;
 	outline: none;
@@ -117,11 +118,17 @@ div.gallery
  .active:after {
 	content: "\2796"; /* Unicode character for "minus" sign (-) */
  }
-.removeFromCart {
-    background-image: url("images/invalid.png");
-    width: 15px;
-    height: 15px;
-    background-size: 100%;
-    border-style: inset;
-    background-repeat: no-repeat;
+.flexRow {
+	display: flex;
+}
+  
+.flexColumn {
+	flex: 50%;
+	padding: 10px;
+}
+.cart {
+	position: fixed;
+	background-color: RGB(96,26,24);
+	border: 1px solid yellow;
+	padding: 5px;
 }

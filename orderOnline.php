@@ -27,15 +27,20 @@
     <body>
         <?php include "heading.php";?>
 
-        <section class="menu">
-            <h1>Menu: </h1>
-            <?php include "menuBody.php";?>
-        </section>
-
-        <section class="cart">
-            <h1>Cart: </h1>
-            <?php include "cart.php";?>
-        </section>
+        <div class="flexRow">
+            <div class="flexColumn">
+                <section class="menu">
+                    <h1>Menu: </h1>
+                    <?php include "menuBody.php";?>
+                </section>
+            </div>
+            <div class="flexColumn">
+                <section class="cart">
+                    <h1>Cart: </h1>
+                    <?php include "cart.php";?>
+                </section>
+            </div>
+        </div>
 
         <?php include "footer.html";?>
     </body>

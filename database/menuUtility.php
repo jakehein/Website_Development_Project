@@ -59,4 +59,11 @@
         $statement->bindParam(":category", $category);
         $statement->execute();
     }
+    function get_foodOrder_auto_increment_value(){
+        global $db;
+        $sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = team6 AND TABLE_NAME = FoodOrder";
+        $statement = $db->prepare($sql);
+        $orderID = $statement->execute();
+        return $orderID;
+    }
 ?>

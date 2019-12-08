@@ -134,17 +134,12 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
 
     ///ADD ITEMID TO CART
     var cartRowContents = `
-        <div class="cartColumn">
-            <span class="cartItemID">${itemID}</span>
-        </div>
-        <div class="cartItem cartColumn">
-            <span class="cartItemName">${itemName}</span>
-        </div>
-            <span class="cartPrice cartColumn">${itemPrice}</span>
-        <div class="cartColumn">
-            <input class="cartQuantity" type="number" value="1">
-            <button class="removeFromCart" type="button"><img width="15" height="15" src="images/invalid.png"></button>
-        </div>`;
+            <td class="cartItemID">${itemID}</td>
+            <td class="cartItemName">${itemName}</td>
+            <td class="cartPrice">${itemPrice}</td>
+            <td><input class="cartQuantity" type="number" value="1"></td>
+            <td><button class="removeFromCart" type="button"><img width="15" height="15" src="images/invalid.png"></button></td>
+        `;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     cartRow.getElementsByClassName('removeFromCart')[0].addEventListener('click', removeCartItem);

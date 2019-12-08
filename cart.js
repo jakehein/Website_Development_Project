@@ -33,21 +33,40 @@ function createAddToCartEventListener(item) {
     item.addEventListener('click', addToCartClicked);
     console.log("event listener added"); //remove
 }
-
+//WORKING ON THIS
 function checkoutClicked() {
     alert('Order Placed.');
     var cartItems = document.getElementsByClassName('cartItems')[0];
     //[...cartItems].forEach(placeOrder);
     while (cartItems.hasChildNodes()) {
         //call method to insert POST statement back to page with hidden inputs
-        placeOrderForm(cartItems);
+
+        //need to enable this
+        //placeOrderForm(cartItems);
         console.log("item deleted");
+        console.log(cartItems.firstChild);
         cartItems.removeChild(cartItems.firstChild);
     }
     updateCartTotal();
 }
-
+//WORKING ON THIS
 var placeOrderForm = function(cartItems) {
+    //STR_part(1)
+    var formHeader = `<form action="lab7.php" class="button" id="gameForm" method="POST">`;
+
+    while(/*cartItems has children or something like that*/) {
+    //STR_part(2)...3...4...(N-1)
+        var formBody += `
+            <input type="hidden" class="" name="itemID[]" value=${itemID}>
+            <input type="hidden" class="" name="itemName[]" value=${itemName}>
+            <input type="hidden" class="" name="itemPrice[]" value=${itemPrice}>
+            <input type="hidden" class="" name="itemQuantity[]" value=${itemQuantity}>
+            `;
+    }
+    //STR_part(N)
+    var formFooter = `
+        <input type="submit" id="submit">
+        </form>`; //INPUT HAD </BUTTON> TAG, NEEDED???
 
     //<form action="lab7.php" class="button" id="gameForm" method="POST">
     //    <input type="hidden" class="hiddenGameValues" name="game[]" value=<?=$game[0]?>>

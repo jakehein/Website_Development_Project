@@ -37,11 +37,12 @@ function checkoutClicked() {
     alert('Order Placed.');
     var cartItems = document.getElementsByClassName('cartItems')[0];
     //[...cartItems].forEach(placeOrder);
+    placeOrderForm(cartItems);
     while (cartItems.hasChildNodes()) {
         //call method to insert POST statement back to page with hidden inputs
 
         //need to enable this
-        placeOrderForm(cartItems);
+        //placeOrderForm(cartItems);
         console.log("item deleted");
         console.log(cartItems.firstChild);
         cartItems.removeChild(cartItems.firstChild);
@@ -49,19 +50,20 @@ function checkoutClicked() {
     updateCartTotal();
 }
 
+//var callButton
+
 var placeOrderForm = function(cartItems) {
     //STR_part(1)
+    var cartRowItems = cartItems.getElementsByClassName("cartRowItems")[0];
     var formHeader = `
         <form action="orderOnline.php" class="cartForm" id="cartForm" method="POST">
-        //////////<input type="hidden" class="" name="userName" value=<?=$_SESSION["name"]?>>
         <input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
         `;
-
+    var formBody = "";
     for(var i = 0; i < cartRowItems.length; i++) {
     //STR_part(2)...3...4...(N-1)
-        var formBody += `
+        formBody += `
             <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName('itemID')[0].innerHTML}>
-            //<input type="hidden" class="" name="itemName[]" value=${cartRowItems[i].getElementsByClassName('itemName')[0].innerHTML}>
             <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName('itemPrice')[0].innerHTML}>
             <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName('itemQuantity')[0].innerHTML}>
             `;
@@ -71,7 +73,11 @@ var placeOrderForm = function(cartItems) {
         <input type="submit" id="submit">
         </form>`; //INPUT HAD </BUTTON> TAG, NEEDED???
 
+    var form = formHeader + formBody + formFooter;
 
+        cartItems.innerHTML = form;
+        //cartItems.append(cartItems);
+        cartItems.getElementById("cartForm").submit();
     //var itemChild = item.firstChild;
     //add each item to the order here
     //remove item from cart

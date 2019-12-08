@@ -12,7 +12,6 @@
         <title>Jade Dragon</title>
         <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
-        <link rel="stylesheet" type="text/css" href="contactUs.css">
     </head>
     <body>
         <?php include "heading.php";?>

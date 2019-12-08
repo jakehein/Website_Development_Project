@@ -21,7 +21,6 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 function createRemoveEventListener(item) {
-
     item.addEventListener('click', removeCartItem);
 }
 
@@ -33,7 +32,7 @@ function createAddToCartEventListener(item) {
     item.addEventListener('click', addToCartClicked);
     console.log("event listener added"); //remove
 }
-//WORKING ON THIS
+
 function checkoutClicked() {
     alert('Order Placed.');
     var cartItems = document.getElementsByClassName('cartItems')[0];
@@ -52,7 +51,7 @@ function checkoutClicked() {
 //WORKING ON THIS
 var placeOrderForm = function(cartItems) {
     //STR_part(1)
-    var formHeader = `<form action="lab7.php" class="button" id="gameForm" method="POST">`;
+    var formHeader = `<form action="lab7.php" class="CHANGE ME" id="INSERT SOMETHING ELSE" method="POST">`;
 
     while(/*cartItems has children or something like that*/) {
     //STR_part(2)...3...4...(N-1)
@@ -108,29 +107,40 @@ function addToCartClicked(event) {
     //console.log(itemParent.value + "   value"); //REMOVE
     //console.log(itemParent.innerHTML + "   innerHTML");
     var itemName = itemParent.getElementsByClassName('itemName')[0].innerHTML;
+    var itemID = itemParent.getElementsByClassName('itemID')[0].innerHTML;
     //var itemPrice = shopItem.getElementsByClassName('itemPrice').innerHTML;
-    addItemToCart(itemName, itemPrice);
+    addItemToCart(itemID, itemName, itemPrice);
     updateCartTotal();
 }
 
-function addItemToCart(itemName, itemPrice) {
+function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemPrice
     var cartRow = document.createElement('div');
     cartRow.classList.add('cartRow');
     var cartItems = document.getElementsByClassName('cartItems')[0];
-    var cartItemNames = cartItems.getElementsByClassName('cartItemName');
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerHTML == itemName) {
-            alert('Already added. Try incrementing.');
-            return;
-        }
-    }
-    //var removeImg = new Image();
-    //removeImg.src = "images/invalid.png";
+    //var cartItemNames = cartItems.getElementsByClassName('cartItemName');
+    var cartItemPrices = cartItems.getElementsByClassName('cartPrice');
+    var cartItemIDs = cartItems.getElementsByClassName('cartItemID');
+    for (var i = 0; i < cartItemIDs.length; i++) {
+        if (cartItemIDs[i].innerHTML == itemID && cartItemPrices[i].innerHTML == itemPrice) {
+                alert('Already added. Try incrementing.');
+                return;
+            }
+    //for (var i = 0; i < cartItemNames.length; i++) {
+    //    if (cartItemNames[i].innerHTML == itemName) {
+    //        alert('Already added. Try incrementing.');
+    //        return;
+    //    }
+    //}
+
+    ///ADD ITEMID TO CART
     var cartRowContents = `
+        <div class="cartColumn">
+            <span class="cartItemID">${itemID}</span>
+        </div>
         <div class="cartItem cartColumn">
             <span class="cartItemName">${itemName}</span>
         </div>
-        <span class="cartPrice cartColumn">${itemPrice}</span>
+            <span class="cartPrice cartColumn">${itemPrice}</span>
         <div class="cartColumn">
             <input class="cartQuantity" type="number" value="1">
             <button class="removeFromCart" type="button"><img width="15" height="15" src="images/invalid.png"></button>

@@ -8,28 +8,25 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userName = $_SESSION['name'];
-        $total = $_POST['transactionTotal'];
+       //echo $userName;
+       $total = str_replace("$", "", $_POST['transactionTotal']);
+        //$total = $_POST['transactionTotal'];
         $index = 0;
         foreach ($_POST['itemID'] as $value) {
             $itemID[$index++] = $value;
-            echo $itemID[$index++];
-        }
-        $index = 0;
-        foreach ($_POST['itemName'] as $value) {
-            $itemName[$index++] = $value;
-            echo $itemName[$index++];
+           // echo $itemID[$index++];
         }
         $index = 0;
         foreach ($_POST['itemPrice'] as $value) {
             $itemPrice[$index++] = $value;
-            echo $itemPrice[$index++];
+           // echo $itemPrice[$index++];
         }
         $index = 0;
         foreach ($_POST['itemQuantity'] as $value) {
             $itemQuantity[$index++] = $value;
-            echo $itemQuantity[$index++];
+            //echo $itemQuantity[$index++];
         }
-        //<input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
+        post_order($userName, $total, $itemID, $itemPrice, $itemQuantity);
     }
 
 

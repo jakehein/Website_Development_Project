@@ -59,11 +59,33 @@
         $statement->bindParam(":category", $category);
         $statement->execute();
     }
+
     function get_foodOrder_auto_increment_value(){
         global $db;
-        $sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = team6 AND TABLE_NAME = FoodOrder";
+        $sql = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'team6' AND TABLE_NAME = 'FoodOrder'";
         $statement = $db->prepare($sql);
         $orderID = $statement->execute();
+        foreach($statement as $row){
+            $orderID = $row['AUTO_INCREMENT'];
+        }
         return $orderID;
+    }
+
+    function post_order($username, $transactionTotal, $itemIDs, $itemPrices, $itemQuantities){
+        global $db;
+        $orderID = get_foodOrder_auto_increment_value();
+        $sql = "INSERT INTO FoodOrder(totalPrice, userName) VALUES(?, ?)";
+        $statement = $db->prepare($sql);
+        $statement->execute([$transactionTotal, $username]);
+
+        $index = 0;
+        foreach($itemIDs as $id){
+            for($i = 0; $i < $itemQuantities[$index]; $i++){
+                $sql = "INSERT INTO OrderItem(orderID, itemID, price) VALUES(?,?,?)";
+                $statement = $db->prepare($sql);
+                $statement->execute([$orderID, $itemIDs[$index], $itemPrices[$index]]);
+            }
+            $index++;
+        }
     }
 ?>

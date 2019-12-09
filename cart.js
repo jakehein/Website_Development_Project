@@ -38,50 +38,61 @@ function checkoutClicked() {
     var cartItems = document.getElementsByClassName('cartItems')[0];
     //[...cartItems].forEach(placeOrder);
     placeOrderForm(cartItems);
-    while (cartItems.hasChildNodes()) {
-        //call method to insert POST statement back to page with hidden inputs
+    //while (cartItems.hasChildNodes()) {
+    //    //call method to insert POST statement back to page with hidden inputs
 
-        //need to enable this
-        //placeOrderForm(cartItems);
-        console.log("item deleted");
-        console.log(cartItems.firstChild);
-        cartItems.removeChild(cartItems.firstChild);
-    }
-    updateCartTotal();
+    //    //need to enable this
+    //    //placeOrderForm(cartItems);
+    //    console.log("item deleted");
+    //    console.log(cartItems.firstChild);
+    //    cartItems.removeChild(cartItems.firstChild);
+    //}
+    //updateCartTotal();
 }
 
 //var callButton
 
-var placeOrderForm = function(cartItems) {
-    //STR_part(1)
-    var cartRowItems = cartItems.getElementsByClassName("cartRowItems")[0];
-    var formHeader = `
-        <form action="orderOnline.php" class="cartForm" id="cartForm" method="POST">
-        <input type="hidden" class="" name="transactionTotal" value=${document.getElementsByClassName('totalPrice')[0].innerHTML}>
-        `;
-    var formBody = "";
-    for(var i = 0; i < cartRowItems.length; i++) {
-    //STR_part(2)...3...4...(N-1)
-        formBody += `
-            <input type="hidden" class="" name="itemID[]" value=${cartRowItems[i].getElementsByClassName('itemID')[0].innerHTML}>
-            <input type="hidden" class="" name="itemPrice[]" value=${cartRowItems[i].getElementsByClassName('itemPrice')[0].innerHTML}>
-            <input type="hidden" class="" name="itemQuantity[]" value=${cartRowItems[i].getElementsByClassName('itemQuantity')[0].innerHTML}>
-            `;
+var placeOrderForm = function (cartItems) {
+
+    var form = document.createElement("form");
+    form.method = "POST";
+    var cartItemContainer = document.getElementsByClassName('cartItems')[0];
+    var cartRowItems = cartItemContainer.getElementsByClassName('cartRowItems');
+    console.log("Cart Row Items Prints Out To: " + cartRowItems);
+    console.log("Cart Row Items innerHTML: " + cartRowItems.innerHTML);
+    console.log("Cart Row Items firstChild: " + cartRowItems.firstChild);
+    var transactionTotal = document.createElement("input");
+    transactionTotal.value = document.getElementsByClassName('totalPrice')[0].innerHTML;
+    transactionTotal.name = "transactionTotal";
+    form.appendChild(transactionTotal);
+
+    for (var i = 0; i < cartRowItems.length; i++) {
+        var cartRow = cartRowItems[i];
+        
+
+        var itemId = document.createElement("input");
+        var idElement = cartRow.getElementsByClassName('cartItemID')[0];
+        itemId.value = idElement.innerHTML;
+        itemId.name = "itemID[]";
+        form.appendChild(itemId);
+
+
+        var itemPrice = document.createElement("input");
+        idElement = cartRow.getElementsByClassName('cartPrice')[0];
+        itemPrice.value = idElement.innerHTML;
+        itemPrice.name = "itemPrice[]";
+        form.appendChild(itemPrice);
+
+
+        var itemQuantity = document.createElement("input");
+        idElement = cartRow.getElementsByClassName('cartQuantity')[0];
+        itemQuantity.value = idElement.value;
+        itemQuantity.name = "itemQuantity[]";
+        form.appendChild(itemQuantity);
     }
-    //STR_part(N)
-    var formFooter = `
-        <input type="submit" id="submit">
-        </form>`; //INPUT HAD </BUTTON> TAG, NEEDED???
 
-    var form = formHeader + formBody + formFooter;
-
-        cartItems.innerHTML = form;
-        //cartItems.append(cartItems);
-        cartItems.getElementById("cartForm").submit();
-    //var itemChild = item.firstChild;
-    //add each item to the order here
-    //remove item from cart
-    //item.removeChild(itemChild);
+    document.body.appendChild(form);
+    form.submit();
 }
 
 function removeCartItem(event) {

@@ -16,26 +16,27 @@
     </head>
     <body>
         <?php include "heading.php";?>
-
-        <h1>Special promotion items:</h1>
-        <h2>Lunch specials: $6.29 each!</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-            </tr>
-            <?php
-            $items = get_menu_by_category("Lunch Special");
-            foreach ($items as $item){
-            ?>
-            <tr>
-                <td class="itemId"><?= $item[0] ?></td>
-                <td class="itemName"><?= $item[1] ?></td>
-            </tr>
-            <?php
-            }
-            ?>
-        </table>
+        <section id="promotionsSection">
+            <h1>Special promotion items:</h1>
+            <h2>Lunch specials: $6.29 each!</h2>
+            <table id="promotionsTable">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                <?php
+                $items = get_menu_by_category("Lunch Special");
+                foreach ($items as $item){
+                ?>
+                <tr>
+                    <td class="itemId"><?= $item[0] ?></td>
+                    <td class="itemName"><?= $item[1] ?></td>
+                </tr>
+                <?php
+                }
+                ?>
+            </table>
+        </section>
         <?php include "footer.html";?>
     </body>
 </html>

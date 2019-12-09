@@ -14,7 +14,7 @@
     $largePrice = "";
     $smallPrice = "";
     $category = "";
-    
+
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $itemName = $_POST["itemName"];
         $largePrice = $_POST["largePrice"];
@@ -24,7 +24,7 @@
             $smallPrice = 0.00;
         }
         $category = $_POST["category"];
-    
+
         add_menu_item($itemName, $largePrice, $smallPrice, $category);
         $_SESSION["addItemSuccess"] = TRUE;
     }
@@ -77,12 +77,14 @@
             <?php
         }
         ?>
-        <h1>Menu:</h1>
-        <div class="flexRow">
-            <div class="flexColumn">
-                <?php include "menuBody.php"; ?>
-            </div>
-            <div class="flexColumn">
+        <div id="menuPage">
+            <h1>Menu:</h1>
+            <div class="flexRow">
+                <div class="flexColumn">
+                    <?php include "menuBody.php"; ?>
+                </div>
+                <div class="flexColumn">
+                </div>
             </div>
         </div>
 

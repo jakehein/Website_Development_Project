@@ -1,3 +1,16 @@
+#promotionsSection {
+    text-align: center;
+}
+#promotionsSection > h1 {
+    font-size: 30px;
+}
+#promotionsTable {
+    margin: auto;
+    text-align: left;
+}
+#menuPage {
+    margin: auto;
+}
 body
 {
     background-color: RGB(96,26,24);

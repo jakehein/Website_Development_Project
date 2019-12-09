@@ -30,6 +30,28 @@ a
 a:hover{
 	color: goldenrod;
 }
+input[type=button], input[type=submit]{
+	background-color: goldenrod;
+	border: none;
+	color: black;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+}
+input[type=button]:hover, input[type=submit]:hover{
+	background-color: yellow;
+}
+.checkout{
+	background-color: goldenrod;
+	border: none;
+	color: black;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+}
+.checkout:hover{
+	background-color: yellow;
+}
 .copyright
 {
     padding-top: 5px;
@@ -113,15 +135,14 @@ div.gallery
 	color: black;
 	float: right;
 	margin-left: 5px;
- }
+}
 
  .active:after {
 	content: "\2796"; /* Unicode character for "minus" sign (-) */
- }
+}
 .flexRow {
 	display: flex;
 }
-  
 .flexColumn {
 	flex: 50%;
 	padding: 10px;
@@ -131,4 +152,10 @@ div.gallery
 	background-color: RGB(96,26,24);
 	border: 1px solid yellow;
 	padding: 5px;
+	max-width: 375px;
+	max-height: 50%;
+	overflow: auto;
+}
+.cartQuantity{
+	max-width: 50px;
 }

@@ -28,7 +28,6 @@ function updateChecked(event){
 		passwordField.disabled = true;
 		passwordConfirmField.disabled = true;
 		passwordRequirements.classList.add("hidden");
-		//passwordRequirements.classList.remove("floatRight");
 		personalFields.classList.remove("floatLeft");
 	}
 }

@@ -99,7 +99,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="keywords" content="food, chinese, take out, delivery, rice, noodle, chicken, pork, jade, dragon, crab, rangoon, general, tso, Jade Dragon, Oshkosh, WI, 54901, Chinese Menu, Chinese restaurant Oshkosh, Chinese restaurant 54901, Chinese food Oshkosh, Chinese food 54901, Chinese food delivery, Chinese delivery Oshkosh, Chinese delivery 54901, Chinese food catering, Chinese carry out, Chinese dine in, Chinese party trays, Chinese food order online">
         <title>Register</title>
-        <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
+        <link rel="icon" href="images/dragon.jpg">
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
 		<link rel="stylesheet" type="text/css" href="registration.css">
 		<script src="registration.js" defer></script>
@@ -130,27 +130,27 @@
 						<fieldset>
 							<legend>Password Requirements</legend>
 							<div>
-								<img id="validLength" src='<?= $validLengthImg ?>'>
+								<img id="validLength" alt="validation" src='<?= $validLengthImg ?>'>
 								<span id="passwordLength">8 characters or longer</span>
 							</div>
 							<div>
-								<img id="validLower" src='<?= $validLowerImg ?>'>
+								<img id="validLower" alt="validation" src='<?= $validLowerImg ?>'>
 								<span id="passwordLowerCase">Contains a lowercase character</span>
 							</div>
 							<div>
-								<img id="validUpper" src='<?= $validUpperImg ?>'>
+								<img id="validUpper" alt="validation" src='<?= $validUpperImg ?>'>
 								<span id="passwordUpperCase">Contains an uppercase character</span>
 							</div>
 							<div>
-								<img id="validNumber" src='<?= $validNumberImg ?>'>
+								<img id="validNumber" alt="validation" src='<?= $validNumberImg ?>'>
 								<span id="passwordNumber">Contains a number</span>
 							</div>
 							<div>
-								<img id="validSpecial" src='<?= $validSpecialImg ?>'>
+								<img id="validSpecial" alt="validation" src='<?= $validSpecialImg ?>'>
 								<span id="passwordSpecial">Contains a special character</span>
 							</div>
 							<div>
-								<img id="validMatch" src='<?= $validMatchImg ?>'>
+								<img id="validMatch" alt="validation" src='<?= $validMatchImg ?>'>
 								<span id="passwordMatch">Passwords must match</span>
 							</div>
 						</fieldset>
@@ -170,7 +170,6 @@
 						<label for="email">* E-Mail: </label><br>
 						<input type="email" class="registerField" id="email" name="email" value='<?= $email ?>' required>
 					</div>
-					</legend>
 				</fieldset>
 				<fieldset>
 						<legend>Address</legend>

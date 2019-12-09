@@ -1,6 +1,4 @@
 <?php
-// THIS FILE SHOULD NOT BE CHANGED
-
 require_once('database.php');
 
 // Note: Be sure to use this PHP data object ($db)

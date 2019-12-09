@@ -162,6 +162,8 @@ div.gallery
 
 .removeFromCart {
     background-image: url("images/invalid.png");
+    width: 15px;
+    height: 15px;
     background-size: 97%;
     border-style: ridge;
     background-repeat: no-repeat;

@@ -79,7 +79,6 @@
 				if($valid_password){
 					update_user_info_with_password($originalUsername, $username, $password, $firstname, $lastname, $email, $address1, $address2, $state, $city, $zipcode);
 					$_SESSION["name"] = $username;
-					//redirect("account.php", "Account updated");
 				}else{
 					$invalid_password_msg = "Password must contain a letter, number, and special character and be at least characters long.";
 					$invalid_password = true;
@@ -87,7 +86,6 @@
 			}else{
 				update_user_info($originalUsername, $username, $firstname, $lastname, $email, $address1, $address2, $state, $city, $zipcode);
 				$_SESSION["name"] = $username;
-				//redirect("account.php", "Account updated");
 			}			
 		}else{
 			$registration_failed = true;
@@ -116,7 +114,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="keywords" content="food, chinese, take out, delivery, rice, noodle, chicken, pork, jade, dragon, crab, rangoon, general, tso, Jade Dragon, Oshkosh, WI, 54901, Chinese Menu, Chinese restaurant Oshkosh, Chinese restaurant 54901, Chinese food Oshkosh, Chinese food 54901, Chinese food delivery, Chinese delivery Oshkosh, Chinese delivery 54901, Chinese food catering, Chinese carry out, Chinese dine in, Chinese party trays, Chinese food order online">
         <title>Account</title>
-        <link rel="icon" href="images/dragon.jpg"> <!-- #Test Your Might -->
+        <link rel="icon" href="images/dragon.jpg">
         <link rel="stylesheet" type="text/css" href="jadeDragon.css">
 		<link rel="stylesheet" type="text/css" href="registration.css">
 		<link rel="stylesheet" type="text/css" href="account.css">

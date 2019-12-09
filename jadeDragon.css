@@ -2,7 +2,6 @@ body
 {
     background-color: RGB(96,26,24);
 	background-image: url("images/background.jpg");
-	/*box-sizing: border-box;*/
     color: white;
 	width: 800px;
 	padding: 5px;

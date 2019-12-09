@@ -14,6 +14,5 @@ function updatePreview(){
 		imagePreview.classList.remove("hidden");
 	}else{
         imagePreview.src = "";
-		//imagePreview.classList.add("hidden");
 	}
 }

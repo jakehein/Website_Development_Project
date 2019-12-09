@@ -159,3 +159,10 @@ div.gallery
 .cartQuantity{
 	max-width: 50px;
 }
+
+.removeFromCart {
+    background-image: url("images/invalid.png");
+    background-size: 97%;
+    border-style: ridge;
+    background-repeat: no-repeat;
+}

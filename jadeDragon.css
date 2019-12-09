@@ -67,6 +67,7 @@ input[type=button]:hover, input[type=submit]:hover{
 }
 .center {
     align-content: center;
+    text-align: center;
 }
 .outer
 {

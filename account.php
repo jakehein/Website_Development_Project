@@ -154,27 +154,27 @@
 						<fieldset>
 							<legend>Password Requirements</legend>
 							<div>
-								<img id="validLength" src='<?= $validLengthImg ?>'>
+								<img id="validLength" alt="validation" src='<?= $validLengthImg ?>'>
 								<span id="passwordLength">8 characters or longer</span>
 							</div>
 							<div>
-								<img id="validLower" src='<?= $validLowerImg ?>'>
+								<img id="validLower" alt="validation" src='<?= $validLowerImg ?>'>
 								<span id="passwordLowerCase">Contains a lowercase character</span>
 							</div>
 							<div>
-								<img id="validUpper" src='<?= $validUpperImg ?>'>
+								<img id="validUpper" alt="validation" src='<?= $validUpperImg ?>'>
 								<span id="passwordUpperCase">Contains an uppercase character</span>
 							</div>
 							<div>
-								<img id="validNumber" src='<?= $validNumberImg ?>'>
+								<img id="validNumber" alt="validation" src='<?= $validNumberImg ?>'>
 								<span id="passwordNumber">Contains a number</span>
 							</div>
 							<div>
-								<img id="validSpecial" src='<?= $validSpecialImg ?>'>
+								<img id="validSpecial" alt="validation" src='<?= $validSpecialImg ?>'>
 								<span id="passwordSpecial">Contains a special character</span>
 							</div>
 							<div>
-								<img id="validMatch" src='<?= $validMatchImg ?>'>
+								<img id="validMatch" alt="validation" src='<?= $validMatchImg ?>'>
 								<span id="passwordMatch">Passwords must match</span>
 							</div>
 						</fieldset>

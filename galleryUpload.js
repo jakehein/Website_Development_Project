@@ -13,7 +13,7 @@ function updatePreview(){
 		imagePreview.src = URL.createObjectURL(imageSelect.files[0]);
 		imagePreview.classList.remove("hidden");
 	}else{
-		imagePreview.src = "";
-		imagePreview.classList.add("hidden");
+        imagePreview.src = "";
+		//imagePreview.classList.add("hidden");
 	}
 }

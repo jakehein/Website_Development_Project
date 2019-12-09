@@ -60,11 +60,12 @@
     <body>
         <?php include "heading.php";?>
 			<form method="POST" enctype="multipart/form-data">
-				<div>
-					<input type="file" name="imageSelect" id="imageSelect" accept=".jpg,.jpeg,.png">
-				</div>
+				
 				<div>
 					<img id="uploadPreview" class="thumbnail">
+				</div>
+                <div>
+					<input type="file" name="imageSelect" id="imageSelect" accept=".jpg,.jpeg,.png">
 				</div>
 				<div>
 					<label for="commentField">Add a comment!</label>

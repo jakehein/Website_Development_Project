@@ -17,7 +17,7 @@
     <body>
         <?php include "heading.php";?>
         <h1>Find Us At:</h1>
-        <p><iframe id="map" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
+        <p><iframe id="map" width="600" height="450" style="border:0;" allowfullscreen=""></iframe></p>
         <?php include "footer.html";?>
     </body>
 </html>

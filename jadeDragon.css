@@ -54,6 +54,7 @@ input[type=button]:hover, input[type=submit]:hover{
 }
 .copyright
 {
+    align-self: center;
     padding-top: 5px;
     color: white;
     clear: both;
@@ -64,11 +65,14 @@ input[type=button]:hover, input[type=submit]:hover{
     float: left;
     margin-right: 10px;
 }
-#outer
+.center {
+    align-content: center;
+}
+.outer
 {
     border: 2px;
 }
-#center_column
+.center_column
 {
     max-width: 800px;
     margin: auto;

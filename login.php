@@ -46,7 +46,7 @@
     <body>
         <?php include "heading.php";?>
 		<h1>Login</h1>
-		<form method="POST" id="loginForm>
+		<form method="POST" id="loginForm">
 			<div class="registerlabel">
 				<label for="username">Username: </label>
 				<input id="username" name="username" value='<?= $username ?>' required>

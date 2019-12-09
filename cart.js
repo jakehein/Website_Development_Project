@@ -68,7 +68,7 @@ var placeOrderForm = function (cartItems) {
 
     for (var i = 0; i < cartRowItems.length; i++) {
         var cartRow = cartRowItems[i];
-        
+
 
         var itemId = document.createElement("input");
         var idElement = cartRow.getElementsByClassName('cartItemID')[0];

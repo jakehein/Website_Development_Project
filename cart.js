@@ -1,10 +1,8 @@
 var checkoutClicked, removeItems, quantity, addToCart, checkout;
 
 window.addEventListener("DOMContentLoaded", function () {
-    console.log("in onload"); //remove
     //each item in the cart should have a remove button
     removeItems = document.getElementsByClassName('removeFromCart');
-    console.log(removeItems); //remove
     [...removeItems].forEach(createRemoveEventListener);
 
     //each item in the cart should have the ability to change the number of items being ordered
@@ -30,27 +28,13 @@ function createChangeQuantityEventListener(item) {
 
 function createAddToCartEventListener(item) {
     item.addEventListener('click', addToCartClicked);
-    console.log("event listener added"); //remove
 }
 
 function checkoutClicked() {
     alert('Order Placed.');
     var cartItems = document.getElementsByClassName('cartItems')[0];
-    //[...cartItems].forEach(placeOrder);
     placeOrderForm(cartItems);
-    //while (cartItems.hasChildNodes()) {
-    //    //call method to insert POST statement back to page with hidden inputs
-
-    //    //need to enable this
-    //    //placeOrderForm(cartItems);
-    //    console.log("item deleted");
-    //    console.log(cartItems.firstChild);
-    //    cartItems.removeChild(cartItems.firstChild);
-    //}
-    //updateCartTotal();
 }
-
-//var callButton
 
 var placeOrderForm = function (cartItems) {
 
@@ -58,9 +42,6 @@ var placeOrderForm = function (cartItems) {
     form.method = "POST";
     var cartItemContainer = document.getElementsByClassName('cartItems')[0];
     var cartRowItems = cartItemContainer.getElementsByClassName('cartRowItems');
-    console.log("Cart Row Items Prints Out To: " + cartRowItems);
-    console.log("Cart Row Items innerHTML: " + cartRowItems.innerHTML);
-    console.log("Cart Row Items firstChild: " + cartRowItems.firstChild);
     var transactionTotal = document.createElement("input");
     transactionTotal.value = document.getElementsByClassName('totalPrice')[0].innerHTML;
     transactionTotal.name = "transactionTotal";
@@ -97,8 +78,6 @@ var placeOrderForm = function (cartItems) {
 
 function removeCartItem(event) {
     var remove = event.target;
-    //console.log(remove.parentElement.parentElement);
-    //console.log(remove.parentElement);
     remove.parentElement.parentElement.remove();
     updateCartTotal();
 }
@@ -112,20 +91,13 @@ function changeQuantity(event) {
 }
 
 function addToCartClicked(event) {
-    console.log("addedToCartClicked occured"); //remove
     var button = event.target;
     var itemPrice = button.value;
     var itemParent = button.parentElement;
-    console.log(itemParent.value + "   value"); //REMOVE
-    console.log(itemParent.innerHTML + "   innerHTML");
-    var itemParent = button.parentElement.parentElement;//.parentElement;
-
-    console.log(itemParent.value + "   value"); //REMOVE
-    console.log(itemParent.innerHTML + "   innerHTML");
+    var itemParent = button.parentElement.parentElement;
 
     var itemName = itemParent.getElementsByClassName('itemName')[0].innerHTML;
     var itemID = itemParent.getElementsByClassName('itemID')[0].innerHTML;
-    //var itemPrice = shopItem.getElementsByClassName('itemPrice').innerHTML;
     addItemToCart(itemID, itemName, itemPrice);
     updateCartTotal();
 }
@@ -134,7 +106,6 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
     var cartRow = document.createElement('tr');
     cartRow.classList.add('cartRowItems');
     var cartItems = document.getElementsByClassName('cartItems')[0];
-    //var cartItemNames = cartItems.getElementsByClassName('cartItemName');
     var cartItemPrices = document.getElementsByClassName('cartPrice');
     var cartItemIDs = cartItems.getElementsByClassName('cartItemID');
     for (var i = 0; i < cartItemIDs.length; i++) {
@@ -142,14 +113,8 @@ function addItemToCart(itemID, itemName, itemPrice) { //compare itemID and itemP
                 alert('Already added. Try incrementing.');
                 return;
             }
-    //for (var i = 0; i < cartItemNames.length; i++) {
-    //    if (cartItemNames[i].innerHTML == itemName) {
-    //        alert('Already added. Try incrementing.');
-    //        return;
-    //    }
     }
 
-    ///ADD ITEMID TO CART
     var cartRowContents = `
             <td class="cartItemID">${itemID}</td>
             <td class="cartItemName">${itemName}</td>
@@ -171,13 +136,9 @@ function updateCartTotal() {
         var cartRow = cartRows[i];
         var priceElement = cartRow.getElementsByClassName('cartPrice')[0];
         var quantityElement = cartRow.getElementsByClassName('cartQuantity')[0];
-        console.log(priceElement);
         var price = parseFloat(priceElement.innerHTML.replace('$', ''));
-        console.log(price);
         var quantity = quantityElement.value;
-        console.log(quantity);
         total = total + (price * quantity);
-        console.log("Total: " + total);
     }
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('totalPrice')[0].innerHTML = '$' + total;
